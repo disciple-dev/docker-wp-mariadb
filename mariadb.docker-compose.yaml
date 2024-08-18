@@ -1,0 +1,19 @@
+name: mariadb
+
+services:
+  mariadb:
+    image: mariadb:latest
+    restart: always
+    environment:
+      MARIADB_RANDOM_ROOT_PASSWORD: 1
+      MYSQL_USER: wp_admin
+      MYSQL_PASSWORD: wp_admin_password
+      MYSQL_DATABASE: wordpress
+    expose:
+      - 3306
+      - 33060
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 8080:8080
