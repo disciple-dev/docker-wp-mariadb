@@ -9,13 +9,12 @@ services:
       - mariadb_default
     restart: always
     environment:
-      - WORDPRESS_DB_HOST: mariadb
-      - WORDPRESS_DB_USER: wp_admin
-      - WORDPRESS_DB_PASSWORD: wp_admin_password
-      - WORDPRESS_DB_NAME: wordpress
+      WORDPRESS_DB_HOST: wp-mariadb-1
+      WORDPRESS_DB_USER: wp_admin
+      WORDPRESS_DB_PASSWORD: wp_admin_password
+      WORDPRESS_DB_NAME: wordpress
 
 volumes:
-  db_data:
   wp_data:
 
 networks:
