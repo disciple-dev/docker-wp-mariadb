@@ -1,5 +1,3 @@
-name: mariadb
-
 services:
   mariadb:
     image: mariadb:latest
@@ -9,6 +7,8 @@ services:
       MYSQL_USER: wp_admin
       MYSQL_PASSWORD: wp_admin_password
       MYSQL_DATABASE: wordpress
+    networks:
+      - mariadb_default
     expose:
       - 3306
       - 33060
@@ -17,3 +17,7 @@ services:
     restart: always
     ports:
       - 8080:8080
+
+networks:
+  mariadb_default:
+    external: true
